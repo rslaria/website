@@ -44,19 +44,9 @@ Parent                            | Duplicate
 `_layout/default.md`              | `_layout/default-galaxy.md`
 `_includes/home_news_events.html` | `_includes/home_news_events-galaxy.html`
 
-This duplication is intentional, it is part of the `collections` configuration
-and allows us to produce "two" sites from one set of source documents. This is
-done intentionally in order to allow authors to add posts once, and then on the
-code side we generate both a "normal" site with the full header, and a "galaxy"
-version without the header since a duplicate header looks quite strange in
-Galaxy.
+This duplication is intentional, it is part of the configuration of the collection and allows us to produce "two" sites from one set of source documents. This is done intentionally in order to allow authors to add posts once, and then on the code side, we generate both a "normal" site with the full header and a "galaxy" version without the header since a duplicate header looks quite strange in Galaxy.
 
-If you need to edit templates, I would recommend editing the parent / normal
-template and then `vimdiff`ing (or other tool of your choice) to compare that
-with its `-galaxy.html` sibling. Most of the templates will be identical except for
-the template they are inheriting from. The only major differences is that the
-normal templates read `for post in site.posts` (or `site.events`) while the
-galaxy templates read `for post in site.posts_plain` (`or site.events_plain`)
+If you need to edit templates, I would recommend editing the parent / normal template and then vimdiffing (or other tools of your choice) to compare that with its -galaxy.html sibling. Most of the templates will be identical except for the template they are inheriting from. The only major difference is that the normal templates read for the post on site. posts (or site.events) while the galaxy templates read for the post on site.posts_plain (or site.events_plain)
 
 
 ## Adding Posts
@@ -67,7 +57,7 @@ These are used for tool notices / other server notices. Run:
 bundle exec jekyll post "My new post"
 ```
 
-The only required metadata are tags and title, you should **remove layout** as that is inherited / specified automatically. If you put `tools` in the tags a wrench icon will show with the post.
+The only required metadata is tags and title, you should **remove layout** as that is inherited/specified automatically. If you put `tools` in the tags a wrench icon will show with the post.
 
 ## Adding Events
 
@@ -85,7 +75,7 @@ organiser:
 location: Georges-Köhler-Allee, Freiburg im Breisgau, Germany
 ```
 
-Here we specify an `starts` and `ends` to define the dates of the event.
+Here we specify a `starts` and `ends` to define the dates of the event.
 Providing an organiser name and email is recommended to allow people to contact
 you easily regarding the event.
 
@@ -97,17 +87,17 @@ and can easily get directions to it.
 
 If you contribute substantially to this service, we invite you to become a "member site"!
 A member site is one of our ways to say "thank you" and acknowledge your contribution. You can
-add events to get more exposure, you can add your funding agencies, own blog posts and present your
+add events to get more exposure, you can add your funding agencies, own blog posts, and present your
 team and publications. To add your side please see this
 [example pull- request](https://github.com/usegalaxy-eu/website/pull/405).
 
 
 ## Building
 
-This website is jekyll based and can be build as every other jekyll page.
+This website is jekyll based and can be built like every other jekyll page.
 
 If you have conda around and no jekyll setup, we do provide a Makefile that sets up and
-conda environment, with all what you need.
+conda environment, with all that you need.
 
 ```console
 make install
